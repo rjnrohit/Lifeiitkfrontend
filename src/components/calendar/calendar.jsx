@@ -37,7 +37,9 @@ class Calendar extends Component {
     for (let i = 0; i < 7; i++) {
       days.push(
         <div className="col col-center" key={i}>
-          {dateFns.format(dateFns.addDays(startDate, i), dateFormat)}
+          {dateFns
+            .format(dateFns.addDays(startDate, i), dateFormat)
+            .slice(0, 3)}
         </div>
       );
     }
@@ -68,7 +70,9 @@ class Calendar extends Component {
             className={`col cell ${
               !dateFns.isSameMonth(day, monthStart)
                 ? "disabled"
-                : dateFns.isSameDay(day, selectedDate) ? "selected" : ""
+                : dateFns.isSameDay(day, selectedDate)
+                ? "selected"
+                : ""
             }`}
             key={day}
             onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
