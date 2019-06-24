@@ -15,8 +15,7 @@ const Main = props => {
       }
     >
       {/* Depending on page passed in props, render corresponding component */}
-      <Calendar 
-        />
+      {props.page.name === "Calendar" ? <Calendar /> : ""}
     </div>
   );
 };
