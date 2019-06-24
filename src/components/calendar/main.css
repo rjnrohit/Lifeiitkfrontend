@@ -1,0 +1,7 @@
+@import "~@fullcalendar/core/main.css";
+@import "~@fullcalendar/daygrid/main.css";
+.fc,
+.fc-ltr,
+.fc-unthemed {
+  height: 90%;
+}

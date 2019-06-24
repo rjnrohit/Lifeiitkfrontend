@@ -30,6 +30,12 @@
   top: var(--topbar-height);
   transition: all 0.3s ease-in-out;
 }
+.calendarDiv {
+  margin: 3%;
+  box-shadow: #0059ff;
+  border-color: red;
+  border: 0px solid black;
+}
 
 .main-wrapper.sidebar-hidden {
   left: 0;

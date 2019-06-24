@@ -39,6 +39,7 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.state.activePage);
     return (
       <React.Fragment>
         <TopBar
