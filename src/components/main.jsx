@@ -1,11 +1,12 @@
 import React from "react";
 import Calendar from "./calendar/calendar";
+// import Calendar from "react-event-calendar"
 
 const Main = props => {
   console.log(props.page.name);
-  var CALENDAR;
+  // var CALENDAR;
   if (props.page.name === "Calendar") {
-    CALENDAR = <Calendar />;
+    // CALENDAR = <Calendar />;
   }
   return (
     <div
@@ -14,7 +15,8 @@ const Main = props => {
       }
     >
       {/* Depending on page passed in props, render corresponding component */}
-      {CALENDAR}
+      <Calendar 
+        />
     </div>
   );
 };
