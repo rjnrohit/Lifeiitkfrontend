@@ -1,11 +1,15 @@
-import React from "react";
+import React, { Component } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Typography,
   Modal,
   CardHeader,
   Avatar,
-  CardContent
+  CardContent,
+  Button,
+  FormGroup,
+  FormControlLabel,
+  Checkbox
 } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
@@ -24,69 +28,63 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const filterModal = props => {
-  const classes = useStyles();
-  const post = props.post;
-  let tags;
-  let allTags
-  return (
-    <Modal
-      aria-labelledby="simple-modal-title"
-      aria-describedby="simple-modal-description"
-      open={props.open}
-      onClose={props.onClose}
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
-      }}
-    >
-      <div className={classes.paper}>
-        {/* <CardHeader
-          avatar={<Avatar src={post.club.image} />}
-          title={post.event.title}
-          subheader={post.club.name}
-        />
-        <CardContent style={{ paddingTop: 0 }}>
-          <Typography variant="overline">
-            <i className="fa fa-calendar-o" />
-            &nbsp;{post.event.dateTime}
-            <br />
-          </Typography>
-          <Typography variant="body2" id="simple-modal-description">
-            {post.event.description}
-          </Typography>
-        </CardContent> */}
-        <Button
-            onClick={() => {}}
-            variant="contained"
-            color="primary"
-            style={{ width: 105, margin: 10 }}
-        >
-            Filter
-        </Button>
-        <Button
-            onClick={() => {}}
-            variant="contained"
-            color="primary"
-            style={{ width: 105, margin: 10 }}
-        >
-            Filter
-        </Button>
-        <FormGroup row>
-            {this.state.tags.map(tag => (
-                <FormControlLabel
-                    control={
-                        <Checkbox checked={tag.checked} onChange={handleChange(tag.id)} value={tag.title} />
-                    }
-                    label={tag.title}
-                />
-            ))}
+class filterModal extends Component {
+  constructor(){
+     super();
+     this.state = {
+         classes: useStyles(),
+         tags:[]
+      }
+  }
 
-        </FormGroup>
-      </div>
-    </Modal>
-  );
+  handleChange = (t) => {
+
+  };
+
+  render(){
+      return (
+         <Modal
+            aria-labelledby="simple-modal-title"
+            aria-describedby="simple-modal-description"
+            open={this.props.open}
+            onClose={this.props.onClose}
+            style={{
+               display: "flex",
+               justifyContent: "center",
+               alignItems: "center"
+            }}
+         >
+            <div className={this.classes.paper}>
+               <Button
+                     onClick={() => {}}
+                     variant="contained"
+                     color="primary"
+                     style={{ width: 105, margin: 10 }}
+               >
+                     All
+               </Button>
+               <Button
+                     onClick={() => {}}
+                     variant="contained"
+                     color="primary"
+                     style={{ width: 105, margin: 10 }}
+               >
+                     Subscribed
+               </Button>
+               <FormGroup row>
+                     {this.state.tags.map(tag => (
+                        <FormControlLabel
+                           control={
+                                 <Checkbox checked={tag.checked} onChange={this.handleChange(tag.id)} value={tag.title} />
+                           }
+                           label={tag.title}
+                        />
+                     ))}
+               </FormGroup>
+            </div>
+         </Modal>
+      );
+   }
 };
 
 export default filterModal;
