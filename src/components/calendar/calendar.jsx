@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import dateFns from "date-fns";
 import "./calendar.css";
+import { Button } from "@material-ui/core";
+
 
 class Calendar extends Component {
   state = {
@@ -78,7 +80,18 @@ class Calendar extends Component {
             onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
           >
             <span className="number">{formattedDate}</span>
-            <span className="bg">{formattedDate}</span>
+            {/* <div className="bg">{formattedDate}</> */}
+            <div className="eventsBox">
+              {/* <div>
+                <span>Hello Apoorv</span>
+              </div>
+              <div>
+                <span>World</span>
+              </div>
+              <div>
+                <span>2 more</span>
+              </div> */}
+            </div>
           </div>
         );
         day = dateFns.addDays(day, 1);
@@ -113,11 +126,23 @@ class Calendar extends Component {
 
   render() {
     return (
-      <div className="calendar">
-        {this.renderHeader()}
-        {this.renderDays()}
-        {this.renderCells()}
-      </div>
+      <React.Fragment>
+        <div>
+          <Button
+              onClick={() => {}}
+              variant="contained"
+              color="primary"
+              style={{ width: 105, margin: 10 }}
+            >
+              Filter
+            </Button>
+        </div>
+        <div className="calendar">
+          {this.renderHeader()}
+          {this.renderDays()}
+          {this.renderCells()}
+        </div>
+      </React.Fragment>
     );
   }
 }
